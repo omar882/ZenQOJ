@@ -1,0 +1,62 @@
+/* Neutralize QOJ's rating-based username colors. */
+.uoj-username,
+.uoj-honor,
+[data-user-color],
+.zen-qoj-username {
+    color: #2c3e50 !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+}
+
+.uoj-username:hover,
+.uoj-honor:hover {
+    color: #1a252f !important;
+}
+
+.zen-qoj-hidden {
+    display: none !important;
+}
+
+.zen-qoj-disabled-link {
+    color: inherit !important;
+    cursor: default !important;
+    pointer-events: none !important;
+    text-decoration: none !important;
+}
+
+/* Hide the profile graph before JavaScript/chart rendering can flash it. */
+#rating-plot,
+#rating-tooltip {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+/* The public problemset's third column is Rating. */
+html.zen-qoj-problems-page .uoj-content > .table-responsive table > thead > tr > :nth-child(3),
+html.zen-qoj-problems-page .uoj-content > .table-responsive table > tbody > tr > :nth-child(3) {
+    display: none !important;
+}
+
+/* Avoid a standings flash before JS identifies every problem column. */
+html.zen-qoj-standings-page #standings table,
+html.zen-qoj-standings-page #standings-table {
+    visibility: hidden !important;
+}
+
+html.zen-qoj-standings-page #standings table.zen-qoj-standings-ready,
+html.zen-qoj-standings-page #standings-table.zen-qoj-standings-ready {
+    visibility: visible !important;
+}
+
+/* Prevent live testcase/status details from appearing before sanitization. */
+tr[id^="status_details_"],
+.uoj-status-details-text-div {
+    visibility: hidden !important;
+}
+
+tr[id^="status_details_"].zen-qoj-status-safe,
+.uoj-status-details-text-div.zen-qoj-status-safe,
+tr[id^="status_details_"]:has(.zen-qoj-status-safe) {
+    visibility: visible !important;
+}
